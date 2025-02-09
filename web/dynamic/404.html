@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>
+      [##cms.seo.title|(شرکت خدمات مسافرت هوایی و گردشگری سینداد سیر)##]
+    </title>
+    <meta
+      name="description"
+      content="[##cms.seo.description|(شرکت خدمات مسافرت هوایی و گردشگری  سینداد سیر)##]"
+    />
+    <basis
+      core="dbsource"
+      source="hosting"
+      name="tag"
+      urlid="[##cms.seo.urlid##]"
+    >
+      <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+      <face filter="key = 'canonical'">
+        <link rel="canonical" href="@value" />
+      </face>
+      <face>
+        <meta property="@key" content="@value" />
+      </face>
+    </basis>
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" />
+  </head>
+  <body class="">
+    <basis core="call" file="header.inc" />
+    <main
+      class="flex relative flex-col mt-24 mb-44 items-center justify-center gap-12 w-full"
+    >
+      <span class="absolute right-24 top-56">
+        <img  loading="lazy" 
+          src="[##cms.cms.cdn##]/images/stars.png"
+          class="!w-[130px] !h-[140px]"
+          width="186"
+          height="193"
+          alt="+"
+        />
+      </span>
+      <img  loading="lazy" 
+        width="828"
+        height="804"
+        class="!w-[276px] !h-[268px]"
+        src="[##cms.cms.cdn##]/images/404-page-not-found.png"
+        alt="404-page-not-found"
+      />
+      <h1 class="text-base text-zinc-900">صفحه مورد نظر یافت نشد</h1>
+      <a
+        class="flex transition-all duration-200 ease-in-out hover:scale-105 hover:font-bold hover:bg-secondary-900 justify-center items-center w-[165px] h-14 rounded-lg bg-secondary-800 text-white"
+        href="/"
+        >بازگشت به صفحه اصلی</a
+      >
+    </main>
+    <basis core="call" file="footer.inc" />
+  </body>
+
+</html>

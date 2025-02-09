@@ -1,0 +1,829 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour">
+  <member
+    name="cat"
+    type="tree"
+    request="cat"
+    parentid="212635"
+    order="ord"
+  ></member>
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="visa">
+  <member
+    name="cat"
+    type="tree"
+    request="cat"
+    parentid="213125"
+    order="ord"
+  ></member>
+</basis>
+
+<basis
+  core="dbsource"
+  source="basiscore"
+  name="db"
+  mid="5"
+  lid="1"
+  usedforid="[##cms.cms.ownerid##]"
+>
+  <member name="info" type="view"></member>
+</basis>
+<header
+  class="flex items-center w-full flex-row-reverse lg:flex-row justify-between bg-white px-6 xl:px-44 py-6"
+>
+  <a aria-label="logo" href="/">
+    <img
+      loading="lazy"
+      decoding="async"
+      class="!w-[93px] !h-[51px]"
+      width="168"
+      height="92"
+      src="[##cms.cms.cdn##]/images/logo.png"
+      alt="logo"
+    />
+  </a>
+  <div class="flex lg:flex-row flex-row-reverse gap-2 lg:gap-10 items-center">
+    <a
+      href="/"
+      class="text-zinc-800 hidden lg:flex transition-all duration-300 hover:text-primary-900 text-base font-normal"
+      >صفحه اصلی</a
+    >
+
+    <basis
+      core="tree"
+      datamembername="tour.cat"
+      idcol="catid"
+      parentidcol="parentid"
+      nullvalue="212635"
+    >
+      <layout>
+        <div
+          class="text-zinc-800 relative hidden lg:flex gap-3 cursor-pointer items-center group transition-all duration-300 text-base font-normal"
+        >
+          <a href="/tours" class="hover:text-primary-900 cursor-pointer">تورها</a>
+          <span
+            class="group-hover:rotate-180 transition-all ease-in-out duration-300"
+            ><svg
+              width="17"
+              height="11"
+              viewBox="0 0 17 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                fill="#27272A"
+                class="group-hover:fill-primary-900"
+              /></svg
+          ></span>
+          <div
+            class="absolute shadow-md justify-between rounded-2xl hidden bg-white gap-4 w-44 cstm-drp h-fit group-hover:flex flex-col top-6"
+          >
+            @child
+          </div>
+        </div>
+      </layout>
+      <face level="end" filter="link is null">
+        <a class="hover:text-primary-900 px-2" href="/tour-list.bc?catid=@catid"
+          >@title</a
+        >
+      </face>
+      <face level="end">
+        <a class="hover:text-primary-900 px-2" href="/@link">@title</a>
+      </face>
+      <face level="1" filter="link is null">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/tour-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="1">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/tour-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="2" filter="link is null">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/tour-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="2">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/tour-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+    </basis>
+
+    <basis
+      core="tree"
+      datamembername="visa.cat"
+      idcol="catid"
+      parentidcol="parentid"
+      nullvalue="213125"
+    >
+      <layout>
+        <div
+          class="text-zinc-800 relative hidden lg:flex gap-3 cursor-pointer items-center group transition-all duration-300 text-base font-normal"
+        >
+          <a href="/visas" class="hover:text-primary-900 cursor-pointer">ویزا</a>
+          <span
+            class="group-hover:rotate-180 transition-all ease-in-out duration-300"
+            ><svg
+              width="17"
+              height="11"
+              viewBox="0 0 17 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                fill="#27272A"
+                class="group-hover:fill-primary-900"
+              /></svg
+          ></span>
+          <div
+            class="absolute shadow-md justify-between rounded-2xl hidden bg-white gap-4 w-44 cstm-drp h-fit group-hover:flex flex-col top-6"
+          >
+            @child
+          </div>
+        </div>
+      </layout>
+      <face level="end" filter="link is null">
+        <a class="hover:text-primary-900 px-2" href="/visa-list.bc?catid=@catid"
+          >@title</a
+        >
+      </face>
+      <face level="end">
+        <a class="hover:text-primary-900 px-2" href="/@link">@title</a>
+      </face>
+      <face level="1" filter="link is null">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/visa-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="1">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/visa-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="2" filter="link is null">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/visa-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+      <face level="2">
+        <div class="group/level2 relative">
+          <a
+            class="hover:text-primary-900 px-2"
+            href="/visa-list.bc?catid=@catid"
+            >@title
+          </a>
+          <ul
+            class="hidden shadow-md w-44 cstm-drp -left-44 top-0 bg-white rounded-2xl gap-4 h-fit group-hover/level2:flex flex-col absolute"
+          >
+            @child
+          </ul>
+        </div>
+      </face>
+    </basis>
+
+    <a
+      href="/articles"
+      class="text-zinc-800 hidden lg:flex transition-all duration-300 hover:text-primary-900 text-base font-normal"
+      >مقالات</a
+    >
+    <a
+      href="/contact-us"
+      class="text-zinc-800 hidden lg:flex transition-all duration-300 hover:text-primary-900 text-base font-normal"
+      >درباره ما</a
+    >
+    <div class="Login_Informati flex gap-1 text-secondary-800">
+      <basis core="call" file="authentication/modal"></basis>
+    </div>
+    <div class="flex gap-4 items-center">
+      <button
+        class="cursor-pointer flex lg:hidden open-menu hover:scale-125"
+        type="button"
+      >
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M20 20.5H4C3.448 20.5 3 20.053 3 19.5C3 18.947 3.448 18.5 4 18.5H20C20.552 18.5 21 18.947 21 19.5C21 20.053 20.552 20.5 20 20.5Z"
+            fill="#005BAB"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M20 6.5H4C3.448 6.5 3 6.053 3 5.5C3 4.947 3.448 4.5 4 4.5H20C20.552 4.5 21 4.947 21 5.5C21 6.053 20.552 6.5 20 6.5Z"
+            fill="#005BAB"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M20 13.5H4C3.448 13.5 3 13.053 3 12.5C3 11.947 3.448 11.5 4 11.5H20C20.552 11.5 21 11.947 21 12.5C21 13.053 20.552 13.5 20 13.5Z"
+            fill="#005BAB"
+          />
+        </svg>
+      </button>
+      <a
+        href="/"
+        class="text-zinc-800 hidden transition-all duration-300 hover:text-secondary-800 text-base font-normal"
+        >ورود/ثبت نام</a
+      >
+    </div>
+  </div>
+  <basis core="view" datamembername="db.info">
+    <face filter="prpID=8000">
+      <a
+        class="hidden lg:flex text-zinc-800 pr-3 hover:bg-primary-900 transition-all duration-300 ease-in-out group hover:shadow-lg hover:text-white font-bold items-center border h-14 border-primary-900 rounded-lg gap-3"
+        href="tel:@text"
+      >
+        @text
+        <span
+          class="h-14 w-14 group-hover:animate-pulse transition-all duration-300 ease-in-out flex items-center rounded-lg bg-primary-900 justify-center"
+        >
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19.7981 15.2475C19.5551 15.0165 19.2911 14.7645 19.0111 14.4835C17.7341 13.2125 16.6311 13.6435 15.7441 13.9925C14.6811 14.4075 13.6791 14.8015 11.8511 12.9755C10.0221 11.1475 10.4141 10.1435 10.8301 9.08049C11.1771 8.19249 11.6091 7.08849 10.3321 5.81549C10.0541 5.53649 9.80409 5.27249 9.57309 5.02849C8.63409 4.03749 7.95609 3.32149 7.00109 3.30949C6.22009 3.28349 5.31009 3.82049 4.01809 5.11449C4.00509 5.12749 3.94009 5.19249 3.92909 5.20649C3.64309 5.48449 2.88409 6.22649 2.87509 7.67349C2.86009 9.93649 4.68509 12.9165 8.29809 16.5315C11.8941 20.1265 14.8621 21.9475 17.1211 21.9475H17.1461C18.5961 21.9395 19.3391 21.1795 19.6191 20.8935L19.7131 20.8025C21.0001 19.5145 21.5221 18.6505 21.5111 17.8255C21.5001 16.8705 20.7861 16.1895 19.7981 15.2475Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17.3528 10.4916C17.4228 10.8496 17.7368 11.0976 18.0878 11.0976C18.1358 11.0976 18.1848 11.0936 18.2328 11.0846C18.6388 11.0056 18.9048 10.6116 18.8258 10.2046C18.4448 8.25056 16.9368 6.74256 14.9838 6.36156C14.5768 6.29356 14.1838 6.54756 14.1038 6.95456C14.0248 7.36156 14.2898 7.75556 14.6968 7.83456C16.0468 8.09656 17.0898 9.13956 17.3528 10.4916Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.9225 3.06275C14.5155 2.99975 14.1395 3.31375 14.0945 3.72475C14.0485 4.13675 14.3455 4.50775 14.7575 4.55275C17.8665 4.89775 20.2805 7.31075 20.6295 10.4208C20.6725 10.8048 20.9965 11.0878 21.3735 11.0878C21.4015 11.0878 21.4295 11.0858 21.4585 11.0838C21.8695 11.0378 22.1665 10.6668 22.1195 10.2548C21.6935 6.44275 18.7335 3.48475 14.9225 3.06275Z"
+              fill="white"
+            />
+          </svg>
+        </span>
+      </a>
+    </face>
+  </basis>
+</header>
+<nav
+  class="menu-mob fixed translate-x-[14340px] shadow-lg transition-all duration-500 ease-in-out flex flex-col z-[100] bg-white w-full h-full top-0 left-0"
+>
+  <div class="!w-full h-[19px] bg-primary-900"></div>
+  <div
+    class="h-[91px] items-center w-full bg-primary-50 flex justify-between px-6"
+  >
+    <img
+      loading="lazy"
+      class="!w-[93px] !h-[51px]"
+      width="168"
+      height="92"
+      src="[##cms.cms.cdn##]/images/logo.png"
+      alt="logo"
+    />
+    <span class="close-menu">
+      <svg
+        width="24"
+        height="25"
+        viewBox="0 0 24 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M13.4142 12.5002L18.7072 7.20725C19.0982 6.81625 19.0982 6.18425 18.7072 5.79325C18.3162 5.40225 17.6842 5.40225 17.2932 5.79325L12.0002 11.0862L6.70725 5.79325C6.31625 5.40225 5.68425 5.40225 5.29325 5.79325C4.90225 6.18425 4.90225 6.81625 5.29325 7.20725L10.5862 12.5002L5.29325 17.7933C4.90225 18.1842 4.90225 18.8162 5.29325 19.2072C5.48825 19.4022 5.74425 19.5002 6.00025 19.5002C6.25625 19.5002 6.51225 19.4022 6.70725 19.2072L12.0002 13.9143L17.2932 19.2072C17.4882 19.4022 17.7442 19.5002 18.0002 19.5002C18.2562 19.5002 18.5122 19.4022 18.7072 19.2072C19.0982 18.8162 19.0982 18.1842 18.7072 17.7933L13.4142 12.5002Z"
+          fill="#007CCD"
+        />
+      </svg>
+    </span>
+  </div>
+  <div class="w-full h-[70vh] overflow-y-hidden py-7">
+    <div class="flex flex-col h-[70vh] px-6 overflow-y-auto w-full">
+      <a
+        href="/"
+        class="text-zinc-800 flex w-full border-b py-4 border-[#DADADA] transition-all duration-300 hover:text-primary-900 text-base font-normal"
+        >صفحه اصلی</a
+      >
+
+      <basis
+        core="tree"
+        datamembername="tour.cat"
+        idcol="catid"
+        parentidcol="parentid"
+        nullvalue="212635"
+      >
+        <layout>
+          <div
+            class="flex w-full flex-col relative cursor-pointer items-center text-zinc-900"
+          >
+            <div
+              id="parent-nav"
+              class="w-full text-zinc-800 justify-between py-4 flex gap-6 border-b border-[#DADADA] border-solid"
+            >
+             <a href="/tours" class="hover:text-primary-900 cursor-pointer">تورها</a>
+              <span class="transition-all ease-in-out duration-300"
+                ><svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  /></svg
+              ></span>
+            </div>
+            <div class="w-full hidden h-fit flex-col">@child</div>
+          </div>
+        </layout>
+        <face level="end" filter="link is null">
+          <div class="w-full border-b py-3 px-4 border-[#DADADA] border-solid">
+            <a
+              class="hover:text-primary-900 px-2"
+              href="/tour-list.bc?catid=@catid"
+              >@title</a
+            >
+          </div>
+        </face>
+        <face level="end">
+          <div class="w-full border-b px-2 py-4 border-[#DADADA] border-solid">
+            <a class="hover:text-primary-900" href="/@link">@title</a>
+          </div>
+        </face>
+        <face level="1" filter="link is null">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/tour-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="1">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/tour-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="2" filter="link is null">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/tour-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="2">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/tour-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+      </basis>
+
+      <basis
+        core="tree"
+        datamembername="visa.cat"
+        idcol="catid"
+        parentidcol="parentid"
+        nullvalue="213125"
+      >
+        <layout>
+          <div
+            class="flex w-full flex-col relative cursor-pointer items-center text-zinc-900"
+          >
+            <div
+              id="parent-nav"
+              class="w-full text-zinc-800 justify-between py-4 flex gap-6 border-b border-[#DADADA] border-solid"
+            >
+              <a href="/visas" class="hover:text-primary-900 cursor-pointer">ویزا</a>
+              <span class="transition-all ease-in-out duration-300"
+                ><svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  /></svg
+              ></span>
+            </div>
+            <div class="w-full hidden h-fit flex-col">@child</div>
+          </div>
+        </layout>
+        <face level="end" filter="link is null">
+          <div class="w-full border-b py-3 px-4 border-[#DADADA] border-solid">
+            <a
+              class="hover:text-primary-900 px-2"
+              href="/visa-list.bc?catid=@catid"
+              >@title</a
+            >
+          </div>
+        </face>
+        <face level="end">
+          <div class="w-full border-b px-2 py-4 border-[#DADADA] border-solid">
+            <a class="hover:text-primary-900" href="/@link">@title</a>
+          </div>
+        </face>
+        <face level="1" filter="link is null">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/visa-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="1">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/visa-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="2" filter="link is null">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/visa-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+        <face level="2">
+          <div id="child1-nav" class="flex flex-col w-full gap-2">
+            <div
+              class="w-full flex justify-between border-b border-[#DADADA] border-solid py-3"
+            >
+              <a
+                class="hover:text-primary-900 px-2"
+                href="/visa-list.bc?catid=@catid"
+                >@title
+              </a>
+              <span class="transition-all duration-300 ease-in-out">
+                <svg
+                  width="17"
+                  height="11"
+                  viewBox="0 0 17 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 1.7501L8.49994 10.1641L0.0859371 1.7501L1.49994 0.336101L8.49994 7.3361L15.4999 0.336101L16.9139 1.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-primary-900"
+                  />
+                </svg>
+              </span>
+            </div>
+            <ul
+              class="hidden w-full gap-4 h-fit flex-col transition-all duration-300 ease-in-out"
+            >
+              @child
+            </ul>
+          </div>
+        </face>
+      </basis>
+
+      <a
+        href="/articles "
+        class="text-zinc-800 flex w-full border-b py-4 border-[#DADADA] transition-all duration-300 hover:text-primary-900 text-base font-normal"
+        >مقالات</a
+      >
+
+      <a
+        href="/contact-us"
+        class="text-zinc-800 flex w-full border-b py-4 border-[#DADADA] transition-all duration-300 hover:text-primary-900 text-base font-normal"
+        >درباره ما</a
+      >
+    </div>
+  </div>
+  <basis core="view" datamembername="db.info">
+    <face filter="prpID=8000">
+      <a
+        class="flex text-zinc-800 mx-6 justify-between pr-3 hover:bg-primary-900 transition-all duration-300 ease-in-out group hover:shadow-lg hover:text-white font-bold items-center border h-14 border-primary-900 rounded-lg gap-3"
+        href="tel:@text"
+      >
+        <span class="-translate-x-20">@text</span>
+        <span
+          class="h-14 w-14 group-hover:animate-pulse transition-all duration-300 ease-in-out flex items-center rounded-lg bg-primary-900 justify-center"
+        >
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19.7981 15.2475C19.5551 15.0165 19.2911 14.7645 19.0111 14.4835C17.7341 13.2125 16.6311 13.6435 15.7441 13.9925C14.6811 14.4075 13.6791 14.8015 11.8511 12.9755C10.0221 11.1475 10.4141 10.1435 10.8301 9.08049C11.1771 8.19249 11.6091 7.08849 10.3321 5.81549C10.0541 5.53649 9.80409 5.27249 9.57309 5.02849C8.63409 4.03749 7.95609 3.32149 7.00109 3.30949C6.22009 3.28349 5.31009 3.82049 4.01809 5.11449C4.00509 5.12749 3.94009 5.19249 3.92909 5.20649C3.64309 5.48449 2.88409 6.22649 2.87509 7.67349C2.86009 9.93649 4.68509 12.9165 8.29809 16.5315C11.8941 20.1265 14.8621 21.9475 17.1211 21.9475H17.1461C18.5961 21.9395 19.3391 21.1795 19.6191 20.8935L19.7131 20.8025C21.0001 19.5145 21.5221 18.6505 21.5111 17.8255C21.5001 16.8705 20.7861 16.1895 19.7981 15.2475Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17.3528 10.4916C17.4228 10.8496 17.7368 11.0976 18.0878 11.0976C18.1358 11.0976 18.1848 11.0936 18.2328 11.0846C18.6388 11.0056 18.9048 10.6116 18.8258 10.2046C18.4448 8.25056 16.9368 6.74256 14.9838 6.36156C14.5768 6.29356 14.1838 6.54756 14.1038 6.95456C14.0248 7.36156 14.2898 7.75556 14.6968 7.83456C16.0468 8.09656 17.0898 9.13956 17.3528 10.4916Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.9225 3.06275C14.5155 2.99975 14.1395 3.31375 14.0945 3.72475C14.0485 4.13675 14.3455 4.50775 14.7575 4.55275C17.8665 4.89775 20.2805 7.31075 20.6295 10.4208C20.6725 10.8048 20.9965 11.0878 21.3735 11.0878C21.4015 11.0878 21.4295 11.0858 21.4585 11.0838C21.8695 11.0378 22.1665 10.6668 22.1195 10.2548C21.6935 6.44275 18.7335 3.48475 14.9225 3.06275Z"
+              fill="white"
+            />
+          </svg>
+        </span>
+      </a> </face
+  ></basis>
+</nav>

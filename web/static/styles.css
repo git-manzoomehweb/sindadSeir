@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --primary: #004582;
+  --primary-950: #004582;
+  --primary-900: #005bab;
+  --primary-800: #007ccd;
+  --primary-700: #008de1;
+  --primary-600: #00a1f6;
+  --primary-500: #00afff;
+  --primary-400: #19bcff;
+  --primary-300: #4ac8ff;
+  --primary-200: #81d8ff;
+  --primary-100: #b4e7ff;
+  --primary-50: #e1f6ff;
+
+  /* Secondary Colors */
+  --secondary: #e45b07;
+  --secondary-950: #9b0009;
+  --secondary-900: #e45b07;
+  --secondary-800: #ed740a;
+  --secondary-700: #f3830d;
+  --secondary-600: #f99310;
+  --secondary-500: #fd9f13;
+  --secondary-400: #fdad2e;
+  --secondary-300: #fdbc53;
+  --secondary-200: #fdcf84;
+  --secondary-100: #fee2b4;
+  --secondary-50: #fef4e1;
+
+  --zinc: #09090b;
+  --zinc-950: #09090b;
+  --zinc-900: #18181b;
+  --zinc-800: #27272a;
+  --zinc-700: #3f3f46;
+  --zinc-600: #52525b;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
+  --zinc-100: #f4f4f5;
+  --zinc-50: #fafafa;
+
+  --black-1: rgba(0, 0, 0, 0.498);
+  --black-2: rgba(0, 0, 0, 0);
+  --gold-1: rgba(240, 173, 22, 0);
+  --gold-2: rgba(217, 126, 20, 1);
+  --gold-3: rgba(206, 104, 20, 1);
+}
+
+@font-face {
+  font-family: "Dana";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./fonts/DanaFaNum-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Dana";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./fonts/DanaFaNum-Bold.ttf");
+}
+
+html,
+* {
+  font-family: "Dana", sans-serif !important;
+}
+body {
+  color: var(--zinc-900);
+}
+.text-gradiant {
+  background: -webkit-linear-gradient(#ffffff, #ffffff34);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-borders {
+  -webkit-text-stroke: 1px #fff;
+}
+.text-borders:hover {
+  -webkit-text-stroke: 1px var(--primary);
+}
+.first-swiper .swiper-slide:hover {
+  border: 1.4px solid var(--primary-700);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.first-swiper .swiper-slide p {
+  transition: all 0.23s ease;
+}
+.first-swiper .swiper-slide:hover p {
+  transform: scale(1.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.bg-gradiant-gold {
+  background: linear-gradient(
+    90.52deg,
+    rgba(240, 173, 22, 0) 0.45%,
+    #d97e14 37.93%,
+    #ce6814 99.6%
+  );
+}
+.filtering-box .input-container-4x input[name="city"] {
+  display: none;
+}
+.filtering-box .input-container-4x {
+  align-items: center;
+}
+.filtering-box .input-container-4x .circle {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: transparent !important;
+  border: 2.5px solid var(--zinc-900);
+  position: relative;
+}
+.filtering-box .input-container-4x .circle::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: var(--zinc-900);
+  position: absolute;
+  left: 31.7%;
+  top: 4.5px;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+.filtering-box .input-container-4x:hover .circle {
+  border: 2.5px solid var(--secondary-800);
+}
+.filtering-box .input-container-4x:hover .circle::before {
+  background-color: var(--secondary-800);
+}
+.filtering-box
+  .input-container-4x
+  input[name="city"]:checked
+  ~ .circle::before {
+  display: flex;
+}
+.filtering-box .input-container-4x label {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.filtering-box .input-container-4x:hover label {
+  color: var(--secondary-800);
+}
+.active-module {
+  background-color: var(--secondary-800) !important;
+}
