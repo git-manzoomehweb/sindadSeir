@@ -1,0 +1,63 @@
+<basis
+  core="dbsource"
+  source="basiscore"
+  name="db"
+  mid="1"
+  lid="1"
+  usedforid="[##cms.query.id##]"
+>
+  <member  name="faq-load" type="view"  propertyid="7246"/>
+</basis>
+<basis core="print" datamembername="db.faq-load">
+  <face filter="RowNumber<>1">
+    <div id="q-box-1" class="flex parent-box flex-col gap-3 pt-4">
+      <div
+        class="flex box-container group w-full px-5 py-5 rounded-[14px] transition-all duration-300 ease-in-out hover:border-2 border border-primary-100 cursor-pointer flex-col gap-2"
+      >
+        <div class="flex w-full justify-between">
+          <p
+            class="text-sm group-hover:font-bold transition-all duration-300 ease-in-out leading-6 text-primary-900"
+          >
+            @text
+          </p>
+
+          <span class="flex items-center">
+            <svg
+              width="10"
+              height="5"
+              viewBox="0 0 10 5"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 4.87988C4.90625 4.87988 4.8125 4.86113 4.71875 4.82363C4.625 4.78613 4.55469 4.73738 4.50781 4.67738L0.992188 1.32488C0.851562 1.18988 0.78125 1.01738 0.78125 0.807383C0.78125 0.597383 0.851562 0.417383 0.992188 0.267383C1.14844 0.132382 1.33594 0.0648828 1.55469 0.0648828C1.77344 0.0648828 1.95312 0.132382 2.09375 0.267383L5.09375 3.14738L8.09375 0.267383C8.25 0.132382 8.4375 0.0648828 8.65625 0.0648828C8.875 0.0648828 9.05469 0.132382 9.19531 0.267383C9.35156 0.417383 9.42969 0.597383 9.42969 0.807383C9.42969 1.01738 9.35156 1.18988 9.19531 1.32488L5.70312 4.67738C5.54688 4.73738 5.41406 4.78613 5.30469 4.82363C5.19531 4.86113 5.09375 4.87988 5 4.87988Z"
+                fill="#005BAB"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          id="answer"
+          class="text-[14px] hidden transition-all duration-300 ease-in-out leading-6 text-zinc-600"
+        >
+          @largetext
+        </div>
+      </div>
+    </div>
+  </face>
+</basis>
+<script>
+  var boxContainer = document.querySelectorAll(".box-container");
+  boxContainer.forEach((box) => {
+    box.addEventListener("click", () => {
+      var answer = box.querySelector("#answer");
+      if (answer.classList.contains("hidden")) {
+        answer.classList.remove("hidden");
+        box.querySelector("div span").classList.add("rotate-180");
+      } else {
+        answer.classList.add("hidden");
+        box.querySelector("div span").classList.remove("rotate-180");
+      }
+    });
+  });
+</script>

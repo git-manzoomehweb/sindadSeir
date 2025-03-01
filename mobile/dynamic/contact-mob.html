@@ -1,0 +1,407 @@
+<basis
+  core="dbsource"
+  source="basiscore"
+  name="db"
+  mid="1"
+  lid="1"
+  usedforid="2373605"
+>
+  <member name="advantage-list" type="view" />
+</basis>
+
+<basis
+  core="dbsource"
+  source="basiscore"
+  lid="1"
+  mid="1"
+  name="db"
+  usedforid="2373750"
+>
+  <member
+    name="goals"
+    type="view"
+    propertyid="7244"
+    perpage=""
+    typeid="159"
+    order="ord"
+  />
+</basis>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>
+      [##cms.seo.title|(شرکت خدمات مسافرت هوایی و گردشگری سینداد سیر)##]
+    </title>
+    <meta
+      name="description"
+      content="[##cms.seo.description|(شرکت خدمات مسافرت هوایی و گردشگری  سینداد سیر)##]"
+    />
+    <basis
+      core="dbsource"
+      source="hosting"
+      name="tag"
+      urlid="[##cms.seo.urlid##]"
+    >
+      <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+      <face filter="key = 'canonical'">
+        <link rel="canonical" href="@value" />
+      </face>
+      <face>
+        <meta property="@key" content="@value" />
+      </face>
+    </basis>
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" />
+  </head>
+  <body class="">
+    <basis core="call" file="header.inc" />
+    <main class="flex flex-col overflow-hidden gap-12 w-full">
+      <section class="w-full relative my-16 flex flex-col gap-9">
+        <div class="w-full flex flex-col-reverse gap-7 px-5 xl:px-44 2xl:px-56">
+          <div class="w-full flex flex-col gap-8">
+            <basis core="view" datamembername="db.info">
+              <face filter="prpID=7994"
+                ><h1 class="text-base font-bold">درباره @text</h1></face
+              >
+            </basis>
+
+            <basis core="view" datamembername="db.info">
+              <face filter="prpID=8004">
+                <div class="text-sm text-zinc-900">@largetext</div>
+              </face>
+            </basis>
+
+            <basis core="print" datamembername="db.advantage-list">
+              <layout>
+                <div class="flex flex-col my-4 justify-between w-full gap-8">
+                  @child
+                </div>
+              </layout>
+              <face filter="RowNumber<>1">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="flex items-center justify-center w-14 h-14 rounded-lg bg-primary-100 font-bold text-primary-800 text-xl"
+                    >@text</span
+                  >
+                  <div class="flex flex-col paragraph-cont gap-2">
+                    @largetext
+                  </div>
+                </div>
+              </face>
+            </basis>
+          </div>
+          <div class="w-full flex relative">
+            <img
+              loading="lazy"
+              width="165"
+              height="259"
+              class="rounded-[200px] !h-[259px] z-30 border-[6px] border-white"
+              src="[##cms.cms.cdn##]/images/about3.jpg"
+              alt="about"
+            />
+            <img
+              loading="lazy"
+              width="165"
+              height="259"
+              class="rounded-[200px] !h-[259px] z-20 translate-x-14 border-[6px] border-white"
+              src="[##cms.cms.cdn##]/images/about2.jpg"
+              alt="about"
+            />
+            <img
+              loading="lazy"
+              width="165"
+              height="259"
+              class="rounded-[200px] !h-[259px] translate-x-[7.5rem] z-10 border-[6px] border-white"
+              src="[##cms.cms.cdn##]/images/about1.jpg"
+              alt="about"
+            />
+          </div>
+        </div>
+        <div class="w-full px-5 xl:px-44 2xl:px-56">
+          <div
+            class="w-full relative z-0 pb-3 justify-between flex flex-col-reverse gap-5 bg-[#F3FAFF] rounded-t-3xl rounded-tr-3xl px-4 pt-6"
+          >
+            <div class="w-full h-227 relative">
+              <img
+                loading="lazy"
+                class="!w-full ab-t0"
+                height="297"
+                width="530"
+                src="[##cms.cms.cdn##]/images/contact-form.png"
+                alt="contact-form"
+              />
+            </div>
+            <div id="advice-form" class="w-full flex pb-4 flex-col gap-4">
+              <h4 class="text-base font-bold text-zinc-900">
+                ارتباط با مشاورین ما
+              </h4>
+              <p class="text-sm text-zinc-800">
+                متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک
+                گفته می‌شود.
+              </p>
+
+              <basis
+                core="schema"
+                run="atclient"
+                schemaurl="/schema/domainform/7A9E6E27-3FCA-40E4-B4EB-DF4CE31A4599/08BB7509-ABF4-4EF1-AD64-79B3CCEE56D0/fa/contact-us"
+                displaymode="new"
+                button="[data-btn-uploadAdvice]"
+                resultsourceid="upload.dataAdvice"
+                OnRendered="RenderFormAdvice"
+              ></basis>
+              <basis
+                core="api"
+                if="{##cms.uploadAdvice.run|(false)##}"
+                run="atclient"
+                url="/schema/domainform/7A9E6E27-3FCA-40E4-B4EB-DF4CE31A4599/fa/editobject"
+                method="post"
+                body="object_edit={##cms.uploadAdvice.value##}&captcha={##cms.uploadAdvice.captcha##}&captchaid={##cms.uploadAdvice.captchaid##}"
+                content-type="application/x-www-form-urlencoded"
+                triggers="cms.uploadAdvice"
+                OnProcessed="OnProcessedEditObjectAdvice"
+              ></basis>
+
+              <basis
+                core="callback"
+                run="atclient"
+                method="uploadDocumentAdvice"
+                triggers="upload.dataAdvice"
+              ></basis>
+              <div class="captcha-button">
+                <div
+                  id="captchaContainer"
+                  class="captchaContainerclass w-full flex captcha-sefaresh ml-2.5 max-xl:ml-0 max-xl:mb-[20px]"
+                  data-bc-answer-container
+                  data-bc-schema-info-multi="0"
+                  data-bc-schema-info-word="58"
+                  data-bc-schema-info-part="1"
+                  data-bc-schema-info-part-0-type="text"
+                >
+                  <basis
+                    core="dbsource"
+                    source="trust_login"
+                    name="captcha"
+                    run="atclient"
+                    triggers="captcha.refreshAdvice"
+                  >
+                    <member
+                      name="advicecode"
+                      type="scalar"
+                      request="captcha"
+                    ></member>
+                  </basis>
+                  <basis
+                    datamembername="captcha.Advicecode"
+                    core="print"
+                    run="atclient"
+                  >
+                    <face>
+                      <script type="text/template">
+                                      <div class="flex lg:w-fit w-full justify-between "><div class="flex lg:flex-row w-full flex-col ">
+
+                           <div class="float-right w-full lg:w-fit"><input type="text" class="adviceUsInput adviceUsInput2 codeinputm bg-secondary-50 rounded-2xl p-3" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" /></div>
+                        <div class="float-right bgvt lg:mt-0 justify-end h-fit leading-[65px] px-4 flex items-center gap-2">
+                         <img  loading="lazy"  class="captcha-images" src="/@captcha@" width="120" height="60" alt="captcha" />
+                          <svg class="cursor-pointer inline-block align-middle" onclick="refreshCaptchaAdvice()" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.1247 8.56165H18.1238C18.0007 8.56175 17.8788 8.5861 17.7651 8.63331C17.6514 8.68052 17.5481 8.74967 17.4611 8.8368C17.3741 8.92393 17.3052 9.02734 17.2581 9.14113C17.2111 9.25492 17.187 9.37685 17.1871 9.49997C17.1859 10.8143 16.8245 12.1032 16.1421 13.2265C15.4597 14.3498 14.4824 15.2646 13.3166 15.8714C12.1507 16.4782 10.8408 16.7538 9.52921 16.6683C8.21765 16.5827 6.95463 16.1393 5.87744 15.3862C2.63134 13.1132 1.83959 8.62309 4.11255 5.37696C6.38552 2.13083 10.8757 1.33899 14.1218 3.61204C14.6129 3.95501 15.0592 4.358 15.4504 4.81165H12.8121C12.5635 4.81165 12.325 4.91042 12.1492 5.08623C11.9734 5.26205 11.8746 5.5005 11.8746 5.74915C11.8746 5.99779 11.9734 6.23624 12.1492 6.41206C12.325 6.58787 12.5635 6.68665 12.8121 6.68665H17.1871C17.4358 6.68665 17.6742 6.58787 17.85 6.41206C18.0259 6.23624 18.1246 5.99779 18.1246 5.74915V1.37415C18.1246 1.12551 18.0259 0.887048 17.85 0.711233C17.6742 0.535418 17.4358 0.436646 17.1871 0.436646C16.9385 0.436646 16.7 0.535418 16.5242 0.711233C16.3484 0.887048 16.2496 1.12551 16.2496 1.37415V2.93536C15.9206 2.62321 15.5689 2.33596 15.1973 2.07598C14.2225 1.39342 13.1228 0.909542 11.9609 0.651979C10.7991 0.394417 9.59797 0.368213 8.42603 0.574863C7.25409 0.781513 6.13433 1.21697 5.13067 1.85637C4.12702 2.49578 3.25914 3.3266 2.57658 4.30141C1.19808 6.27013 0.658111 8.70582 1.07546 11.0727C1.49281 13.4395 2.83329 15.5436 4.80201 16.9221C6.31776 17.9898 8.12639 18.563 9.98041 18.5633C10.5144 18.5631 11.0474 18.5162 11.5732 18.4233C13.6714 18.0531 15.5722 16.9556 16.9417 15.3235C18.3112 13.6914 19.062 11.6289 19.0621 9.49833C19.0619 9.24983 18.963 9.01159 18.7873 8.83596C18.6115 8.66032 18.3732 8.56166 18.1247 8.56165Z" fill="#18181B"/></svg>
+                            </div>
+
+                                                          </div></div>
+                      </script>
+                    </face>
+                  </basis>
+                  <button
+                    class="data-body-btn w-[130px] h-14 bg-secondary-800 rounded-lg text-white flex items-center justify-center hover:font-bold transition-all duration-300 ease-in-out hover:bg-secondary-900 hover:scale-105"
+                    type="button"
+                    data-btn-uploadAdvice
+                  >
+                    ارسال
+                  </button>
+                </div>
+
+                <div
+                  class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 justify-center items-center gap-2.5 flex"
+                >
+                  <div
+                    id="ballsWaveG"
+                    class="ext-zinc-50 text-base font-normal leading-normal"
+                  >
+                    <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                    <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                  </div>
+                </div>
+                <div class="message-api text-right custom-msg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="z-10 w-full -translate-y-[46px] flex flex-col gap-6 bg-primary-900 py-7 px-5 xl:px-44 2xl:px-56"
+        >
+          <div class="lg:w-[50%] w-full">
+            <iframe
+              defer=""
+              title="سینداد"
+              class="inline w-full align-middle border-0 border-none rounded-xl my-auto"
+              height="119"
+              loading="lazy"
+              target="_blank"
+              allowfullscreen=""
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202.44307759455725!2d51.426031369336876!3d35.724023698726405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e01460f1c306d%3A0x83694c5e8279de3c!2sSindadSeir!5e0!3m2!1ssv!2sse!4v1737468347941!5m2!1ssv!2sse"
+            ></iframe>
+          </div>
+          <div class="flex flex-col w-full gap-4">
+            <div class="flex gap-4 items-center">
+              <span
+                class="w-12 h-12 flex justify-center items-center bg-white rounded-lg"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.2169 3H7.78216C4.84281 3 3 5.08119 3 8.02638V15.9736C3 18.9188 4.83405 21 7.78216 21H16.2159C19.165 21 21 18.9188 21 15.9736V8.02638C21 5.08119 19.165 3 16.2169 3Z"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 16.4331C11.4075 16.4331 8.29492 13.9131 8.29492 11.2764C8.29492 9.2302 9.95383 7.57031 12 7.57031C14.0462 7.57031 15.7051 9.2302 15.7051 11.2764C15.7051 13.9131 12.5926 16.4331 12 16.4331Z"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M12.002 11.2585V11.3052M12.1912 11.2685C12.1912 11.3736 12.1059 11.4589 12.0008 11.4589C11.8957 11.4589 11.8105 11.3736 11.8105 11.2685C11.8105 11.1634 11.8957 11.0781 12.0008 11.0781C12.1059 11.0781 12.1912 11.1634 12.1912 11.2685Z"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <basis core="view" datamembername="db.info">
+                <face filter="prpID=7999">
+                  <div class="text-white w-[80%] lg:w-fit">@largetext</div>
+                </face>
+              </basis>
+            </div>
+            <div class="flex gap-4 items-center">
+              <span
+                class="w-12 h-12 flex justify-center items-center bg-white rounded-lg"
+                ><svg
+                  width="24"
+                  height="26"
+                  viewBox="0 0 24 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.498 4.354C18.199 4.765 21.123 7.685 21.538 11.386"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M14.498 7.89697C16.269 8.24097 17.653 9.62597 17.998 11.397"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="square"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M18.0667 22.8417C8.91747 23.2605 2.10415 12.8871 3.05077 7.82576C3.91931 6.33331 5.03257 5.22792 6.52252 4.354L9.76304 8.80524L8.11965 11.6593C8.11965 11.6593 8.57344 13.5647 10.2814 15.2726C12.074 17.0652 14.0737 17.6133 14.0737 17.6133L16.9278 15.9699L21.5385 19.3699C20.6807 20.9025 19.5993 21.9839 18.0667 22.8417Z"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="square"
+                  ></path>
+                </svg>
+              </span>
+              <basis core="view" datamembername="db.info">
+                <face filter="prpID=8000">
+                  <a href="tel:@text" class="text-white hover:text-primary-300">
+                    @text
+                  </a>
+                </face>
+              </basis>
+            </div>
+            <div class="flex gap-4 items-center">
+              <span
+                class="w-12 h-12 flex justify-center items-center bg-white rounded-lg"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 15.0944C21 17.8596 19.1552 20.1072 16.4183 20.1004H7.58173C4.84476 20.1072 3 17.8596 3 15.0944V8.91315C3 6.15088 4.84476 3.90039 7.58173 3.90039H16.4183C19.1552 3.90039 21 6.15088 21 8.91315V15.0944Z"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M20.6269 6.97363L14.1225 12.2626C12.8976 13.2358 11.1616 13.2358 9.93667 12.2626L3.37695 6.97363"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M8.68533 11.2539L3.37109 17.0255M20.6289 17.0263L15.3732 11.2547"
+                    stroke="#ED740A"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <basis core="view" datamembername="db.info">
+                <face filter="prpID=8001">
+                  <a
+                    href="mailto:@text"
+                    class="text-white hover:text-primary-300"
+                  >
+                    @text
+                  </a>
+                </face>
+              </basis>
+            </div>
+          </div>
+        </div>
+        <div class="w-full px-5 xl:px-44 2xl:px-56 flex flex-col gap-6">
+          <h6 class="text-2xl font-bold text-zinc-900">اهداف سینداد</h6>
+          <basis core="view" datamembername="db.goals">
+            <face filter="prpID=7244">
+              <div class="text-sm">@largetext</div>
+            </face>
+          </basis>
+        </div>
+      </section>
+    </main>
+    <basis core="call" file="footer.inc" />
+  </body>
+</html>

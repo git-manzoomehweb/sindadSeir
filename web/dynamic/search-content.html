@@ -1,0 +1,230 @@
+<basis
+  core="dbsource"
+  source="basiscore"
+  lid="1"
+  mid="1"
+  name="db"
+  q="[##cms.query.search-content-name##]"
+>
+  <member
+    name="article-list"
+    type="list"
+    link="article.bc"
+    propertyid="7244"
+    perpage="9"
+    pageno="[##cms.query.pagenum|(1)##]"
+    order="ord"
+  />
+  <member
+    name="paging"
+    type="list"
+    request="paging"
+    count="2"
+    parentname="article-list"
+  />
+</basis>
+
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>
+      [##cms.seo.title|(شرکت خدمات مسافرت هوایی و گردشگری سینداد سیر)##]
+    </title>
+    <meta
+      name="description"
+      content="[##cms.seo.description|(شرکت خدمات مسافرت هوایی و گردشگری  سینداد سیر)##]"
+    />
+    <basis
+      core="dbsource"
+      source="hosting"
+      name="tag"
+      urlid="[##cms.seo.urlid##]"
+    >
+      <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+      <face filter="key = 'canonical'">
+        <link rel="canonical" href="@value" />
+      </face>
+      <face>
+        <meta property="@key" content="@value" />
+      </face>
+    </basis>
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" />
+  </head>
+  <body class="">
+    <basis core="call" file="header.inc" />
+    <main class="flex flex-col overflow-hidden gap-12 w-full">
+      <section class="w-full px-5">
+        <div
+          class="bg-article-list bg-no-repeat bg-center w-full justify-center items-center bg-cover flex flex-col gap-10 px-5 xl:px-44 2xl:px-56 py-24 rounded-[42px]"
+        >
+          <h2 class="text-gradiant text-[64px] font-bold leading-[70px]">
+            [##cms.query.search-content-name##]
+          </h2>
+
+         
+        </div>
+      </section>
+      <section class="w-full px-5 xl:px-44 2xl:px-56 flex flex-col gap-9">
+        <h3 class="text-zinc-900 font-bold text-2xl mt-9">
+         [##cms.query.search-content-name##]
+        </h3>
+        <div class="w-full relative flex gap-5">
+          <span class="absolute -right-44 -top-24">
+            <img  loading="lazy" 
+              src="[##cms.cms.cdn##]/images/stars.png"
+              class="!w-[130px] !h-[140px]"
+              width="186"
+              height="193"
+              alt="+"
+            />
+          </span>
+          <basis core="list" datamembername="db.article-list">
+            <layout>
+              <div class="w-full grid grid-cols-4 gap-4">@child</div>
+            </layout>
+            <face>
+              <article
+                class="flex flex-col relative rounded-lg bg-primary-800 !h-[409px] overflow-hidden"
+              >
+                <img  loading="lazy" 
+                  class="!w-full !h-[186px]"
+                  width="310"
+                  height="186"
+                  src="@image"
+                  alt="@title"
+                />
+                <div
+                  class="absolute flex flex-col p-5 gap-4 w-[91%] right-[4.8%] top-[28%] h-[279px] z-20 bg-white rounded-lg"
+                >
+                  <h4 class="line-clamp-1 text-base font-bold">@title</h4>
+                  <p class="text-zinc-600 h_160p text-sm line-clamp-[8]">
+                    @prp_7244
+                  </p>
+                  <div class="w-full flex justify-center items-center">
+                    <a
+                      href="@link"
+                      class="text-sm text-primary-800 transition-all hover:font-bold duration-200 ease-in-out hover:text-secondary-800 hover:scale-110"
+                      >مشاهده بیشتر</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </face>
+            <face filter="link is null">
+              <article
+                class="flex flex-col relative rounded-lg bg-primary-800 !h-[409px] overflow-hidden"
+              >
+                <img  loading="lazy" 
+                  class="!w-full !h-[186px]"
+                  width="310"
+                  height="186"
+                  src="@image"
+                  alt="@title"
+                />
+                <div
+                  class="absolute flex flex-col p-5 gap-4 w-[91%] right-[4.8%] top-[28%] h-[279px] z-20 bg-white rounded-lg"
+                >
+                  <h4 class="line-clamp-1 text-base font-bold">@title</h4>
+                  <p class="text-zinc-600 h_160p text-sm line-clamp-[8]">
+                    @prp_7244
+                  </p>
+                  <div class="w-full flex justify-center items-center">
+                    <a
+                      href="/article.bc?id=@id"
+                      class="text-sm text-primary-800 transition-all hover:font-bold duration-200 ease-in-out hover:text-secondary-800 hover:scale-110"
+                      >مشاهده بیشتر</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </face>
+          </basis>
+        </div>
+        <div class="w-full flex gap-4 justify-center items-center">
+          <basis core="print" datamembername="db.paging">
+            <face filter="(@sta='pre')">
+              <a
+                class="bg-primary-50 group hover:bg-primary-800 w-14 h-14 flex justify-center items-center rounded-xl"
+                href="/[##cms.cms.link_page##]&pagenum=@page"
+                aria-label="angle-left"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 11.7501L8.49994 20.1641L7.08594 18.7501L14.0859 11.7501L7.08594 4.7501L8.49994 3.3361L16.9139 11.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-white"
+                  />
+                </svg>
+              </a>
+            </face>
+          </basis>
+
+          <basis core="print" datamembername="db.paging">
+            <face filter="(@page=[##cms.query.pagenum|(1)##])">
+              <a
+                class="bg-primary-50 text-zinc-900 hover:text-white group hover:bg-primary-800 w-14 h-14 flex justify-center items-center rounded-xl"
+                href="/[##cms.cms.link_page##]&pagenum=@page"
+              >
+                @page
+              </a>
+            </face>
+            <face
+              filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no')"
+            >
+              <a
+                href="/[##cms.cms.link_page##]&pagenum=@page"
+                class="bg-primary-50 text-zinc-900 hover:text-white group hover:bg-primary-800 w-14 h-14 flex justify-center items-center rounded-xl"
+              >
+                @page
+              </a>
+            </face>
+          </basis>
+
+          <basis core="print" datamembername="db.paging">
+            <face filter="(@sta='nex')">
+              <a
+                href="/[##cms.cms.link_page##]&pagenum=@page"
+                aria-label="angle-right"
+                class="bg-primary-50 text-zinc-900 hover:text-white group hover:bg-primary-800 rotate-180 w-14 h-14 flex justify-center items-center rounded-xl"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.9139 11.7501L8.49994 20.1641L7.08594 18.7501L14.0859 11.7501L7.08594 4.7501L8.49994 3.3361L16.9139 11.7501Z"
+                    fill="#27272A"
+                    class="group-hover:fill-white"
+                  />
+                </svg>
+              </a>
+            </face>
+          </basis>
+        </div>
+      </section>
+    </main>
+    <basis core="call" file="footer.inc" />
+  </body>
+</html>
